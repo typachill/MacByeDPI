@@ -1,66 +1,54 @@
-MacByeDPI
+# MacByeDPI
 
-MacByeDPI is a simple macOS GUI wrapper for SpoofDPI.
+MacByeDPI — простая macOS-обёртка для SpoofDPI.
 
-The app allows you to start, stop, and check SpoofDPI from a native macOS SwiftUI interface.
+Приложение позволяет запускать, останавливать и проверять работу SpoofDPI через удобный интерфейс на SwiftUI.
 
-Features
+## Возможности
 
-* Start and stop SpoofDPI from a macOS app
-* DNS mode selection: Auto, System, HTTPS, UDP
-* Proxy check button
-* Built with SwiftUI
-* Uses SpoofDPI as the backend engine
+- Запуск SpoofDPI из macOS-приложения
+- Остановка SpoofDPI одной кнопкой
+- Выбор DNS-режима: Auto, System, HTTPS, UDP
+- Проверка работы прокси
+- Интерфейс на SwiftUI
+- Локальный прокси на `127.0.0.1:8080`
 
-Requirements
+## Требования
 
-* macOS
-* Xcode
-* Homebrew
-* SpoofDPI
+- macOS
+- Xcode
+- Homebrew
+- SpoofDPI
 
-Installation for development
+## Установка для разработки
 
-Install SpoofDPI:
+Сначала установите SpoofDPI:
 
+```bash
 brew install spoofdpi
-
-Clone the repository:
-
-git clone https://github.com/yourusername/MacByeDPI.git
+Склонируйте репозиторий:
+git clone https://github.com/typachill/MacByeDPI.git
 cd MacByeDPI
+Как это работает
 
-Open the project in Xcode and run it.
+MacByeDPI запускает SpoofDPI с локальным прокси:127.0.0.1:8080
+Текущий статус
 
-How it works
+Проект находится на ранней стадии MVP.
 
-MacByeDPI starts SpoofDPI with a local proxy on:
+Уже работает:
 
-127.0.0.1:8080
+* запуск SpoofDPI;
+* остановка SpoofDPI;
+* выбор DNS-режима;
+* проверка прокси;
+* базовый интерфейс macOS.
 
-The app can automatically configure the system network proxy using SpoofDPI.
+В планах
 
-Current status
-
-This project is an early MVP.
-
-Working features:
-
-* Start SpoofDPI
-* Stop SpoofDPI
-* Select DNS mode
-* Check proxy availability
-
-Planned features:
-
-* Better UI
-* Menu bar mode
-* Auto start
-* App icon
-* DMG release
-* Bundled SpoofDPI binary
-
-License
-
-MIT
-typachill
+* улучшить интерфейс;
+* добавить иконку приложения;
+* добавить режим menu bar;
+* добавить автозапуск;
+* сделать .dmg-установщик;
+* добавить встроенный бинарник SpoofDPI.
