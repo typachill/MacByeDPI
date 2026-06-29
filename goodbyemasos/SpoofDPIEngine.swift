@@ -48,13 +48,15 @@ final class SpoofDPIEngine: ObservableObject {
     func start() {
         guard !isRunning else { return }
 
-        let spoofDPIPath = "/opt/homebrew/bin/spoofdpi"
-
-        guard FileManager.default.fileExists(atPath: spoofDPIPath) else {
-            appendLog("Ошибка: spoofdpi не найден по пути \(spoofDPIPath)\n")
-            appendLog("Проверь командой в Terminal: which spoofdpi\n")
+        guard let spoofDPIPath = Bundle.main.path(forResource: "spoofdpi", ofType: nil) else {
+            appendLog("Ошибка: встроенный spoofdpi не найден в приложении\n")
             return
         }
+
+        try? FileManager.default.setAttributes(
+            [.posixPermissions: 0o755],
+            ofItemAtPath: spoofDPIPath
+        )
 
         let dnsMode = selectedDNSMode.spoofDPIValue
 
